@@ -1,0 +1,190 @@
+------------------
+AliveJournal v1.61 
+------------------
+By Sean M. Graham <grahams@csh.rit.edu>
+Based on Original Work by Simon Huet <shuet@bexl.org>
+http://www.livejournal.com/~alivejournal/
+
+AliveJournal is a client for the LiveJournal online journalling community.
+This is a revamped version of Simon Huet's original client. Since the
+currently-released client had finally broken from old age, and my version
+incorporates many feature additions I have been working on, I decided to
+release my changes to the public. 
+
+I have been trying to get ahold of Simon for awhile now to see if we could
+work together on releasing a new version, but I haven't heard back from him.
+I talked to him when I first explored adding features to the client, and he
+was quite busy (which I assume only got worse). 
+
+Anyway, it wasn't my intention to branch, and I hope we can combine our
+efforts as soon as his workload decreases.
+
+------------
+Installation
+------------
+
+Just copy the "AliveJournal" binary somewhere that pleases you (it is common
+for people to use /boot/apps/ as a place for their applications).
+AliveJournal doesn't care, so just pick a place that fits your
+organizational scheme. :)
+
+That ends the installation portion of your journey. :)
+
+Run the "AliveJournal" executable and enjoy!  I have tried to keep the
+interface as simple as possible, so I hope it is self explanatory.  If it
+isn't, please let me know and I will work to improve it.
+
+-----------
+Source Code
+-----------
+
+The source code is licensed under the GNU Public License (GPL), and is
+available here:
+http://www.bebits.com/app/1920
+
+-----------------------------------------------------------------------------
+
+version 1.61 details:
+
+I finally tracked down a separate problem that was keeping people who didn't
+see relief from the last version.  I did more testing this time around, and I
+am confident that this version should work for everyone (famous last words).  
+
+This release also has the added feature of being able to select which journal
+you wish to edit (from the ones you have access to) within the History Editor.
+
+Enjoy!
+
+-----------------------------------------------------------------------------
+
+version 1.6 details:
+
+Sorry for the delay in releasing a working, newer version of this client.
+Between graduating, moving to a new city, starting a new job, and having
+that job require working long hours to release product I didn't have much
+time to work on fun things.. :)
+
+First of all, for the past few weeks people have been unable to use this
+client, as the login process would fail.  I (believe) I have found and
+eliminated this problem.  In addition, I have found and eliminated the crash
+caused when opening/using the Account Manager window.
+
+There are alot of changes under the hood of this release, so I wanted to get
+it in peoples hands before I start adding the features everyone has been
+asking for.
+
+As always, more information about AliveJournal and its development is
+available at:
+
+http://www.livejournal.com/~alivejournal/
+
+That community is also a good location to make feature requests, but please
+report bugs directly to me (grahams@csh.rit.edu).
+
+Thanks!
+
+-----------------------------------------------------------------------------
+
+version 1.5c BETA 2 details:
+
+In addition to the notes from the last beta, the following has changed:
+
+    - Alphabetization of the mood list
+    - Saving of window sizes for the Entry Writer and Entry Editor windows
+    - Caching of moods from the server (so the whole list isn't downloaded
+      each time.... Not a big deal for broadband users, but potentially a
+      nuisance for those on modems).
+    - The first picture returned was being chosen by the client as default,
+      but it now goes with the server selected defaults
+    - Settings are now handled much more cleanly.... In the previous
+      version, the only feasible way to add new stored settings was to
+      delete the existing file...  I can now add settings willy-nilly and be
+      able to maintain the settings from the previous version if desired.
+    - Executable is built with symbols intact.... This makes it *much*
+      bigger....  Unfortunately these symbols are really necessary for
+      debugging, so they are staying put at least until a release.
+    - other stuff I am probably forgetting (but not much)... :)
+
+Again, please test this as much as you can, and also try to get your friends
+to do the same... :)
+
+Thanks!
+
+-----------------------------------------------------------------------------
+
+version 1.5c BETA details:
+
+I wanted to release a beta of this version so I can try to keep my spamming
+of BeBits to a minimum.
+
+One notable change between 1.5b and c is that I have stopped using BeXL.  I
+think BeXL is a great package, but it limited me in two ways:
+    - If I want to use any new views, or derived ones, I either have to play
+      around with the source generated by BeXL EVERY time it is generated,
+      or I have to write addons for BeXL.  In the case of one-off classes,
+      either way it seems like a pain....
+    - It seems hard to keep all the various hook stubs for BeXL under any
+      kind of version control (especially Perforce).  
+I think the BeXL is great for laying out your initial design, prototyping,
+or even for maintaining applications that don't need any custom GUI
+classes...  I don't regret purchasing it one bit.. :)
+
+Changes:
+    - Username/Password controls now disabled after you press logon, and are
+      reenabled if for some reason the logon failed or the user logs out.
+    - I am starting to put more tooltips on confusing controls, most notably
+      in the Post Options window (most everything has a tip now).  Thanks to
+      Marco Nelissen for his BubbleHelper class.
+    - Minimum Windows Sizes are now reinstated, so you can't shrink the
+      windows to ridiculously small sizes.
+    - Fixed some bugs in the Friends/FriendsOf/History view.
+
+Report bugs to me directly at grahams@csh.rit.edu 
+
+Thanks!
+
+-----------------------------------------------------------------------------
+
+version 1.5b details:
+
+In the original release I stated I fixed the bug that caused the logon
+proces to hang... I was wrong..  But, I do believe I have truly found it
+this time around.  Simon wrote an awesome class (ResponseBlockManager) to
+break apart the responses from the LJ Server into a hashtable-type structure
+(key/value).  Anyway, there was an assumption that would occasionally break
+when it was initially parsing the response.
+
+This bug caused two different bugs that I have been trying to track down for
+awhile: The "Hang on logon" bug and the "Failure to clear out the window
+after posting an entry" bug...  I also made the clear button on the
+"WriterWindow" do something (I guess I should have tested it a bit more
+before releasing it...). :)
+
+One last thing... Some people were confused by the little button labeled
+"..." in the "Post Options" window.  Click this button while running
+SoundPlay and AliveJournal will ask SoundPlay for your "Current Music".
+
+-----------------------------------------------------------------------------
+
+version 1.5a details:
+
+Ok.... You _always_ miss a doozy.  While I couldn't reproduce it, I think I
+fixed a segfault that would occur occasionally when using the Post Options
+Window.  Thanks to Zach Dykstra for reporting this one.
+
+I also added this README file, since somehow the one I had written for the
+original release was lost in the sauce.
+
+-----------------------------------------------------------------------------
+
+version 1.5 details:
+First Release by Me. :) 
+
+This new version incorporates Mood & Music metadata, choosing Security
+Levels, using alternate pictures, posting to secondary journals, and also
+uses the new LJ logos and icons. 
+
+Let me know what you think! NOTE: The source included requires BeXL, another
+of Simon's Products. I have been using the BeXL 2.0 beta in my work on this
+product, so you might need to as well
+

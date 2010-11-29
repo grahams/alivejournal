@@ -1,0 +1,130 @@
+## BeOS Generic Makefile v2.2 ##
+
+## Application Specific Settings ---------------------------------------------
+
+# specify the name of the binary
+NAME= AliveJournal
+
+# specify the type of binary
+#	APP:	Application
+#	SHARED:	Shared library or add-on
+#	STATIC:	Static library archive
+#	DRIVER: Kernel Driver
+TYPE= APP
+
+#	specify the source files to use
+#	full paths or paths relative to the makefile can be included
+# 	all files, regardless of directory, will have their object
+#	files created in the common object directory.
+#	Note that this means this makefile will not work correctly
+#	if two source files with the same name (source.c or source.cpp)
+#	are included from different directories.  Also note that spaces
+#	in folder names do not work well with this makefile.
+SRCS=  src/main.cpp \
+	src/LJApplication/LJApplication.cpp \
+	src/LJApplication/LJLoginWindow/LJLoginWindow.cpp \
+	src/LJApplication/LJLoginWindow/LJLogoView/LJLogoView.cpp \
+	src/LJApplication/LJAccount/LJAccount.cpp \
+	src/LJApplication/LJAccount/LJViewFriends/LJViewFriends.cpp \
+	src/LJApplication/LJAccount/LJViewFriendsOf/LJViewFriendsOf.cpp \
+	src/LJApplication/LJAccount/LJViewHistory/LJViewHistory.cpp \
+	src/LJApplication/LJSettings/LJSettings.cpp \
+	src/LJApplication/LJSettings/LJSettingsViewNetwork/LJSettingsViewNetwork.cpp \
+	src/LJApplication/LJWriter/LJWriter.cpp \
+	src/LJApplication/LJEventEditor/LJEventEditor.cpp \
+	src/LJApplication/LJPostOptionsWindow/LJPostOptionsWindow.cpp \
+	src/LJApplication/LJPostOptionsWindow/LJPostOptionsWindowMainView/LJPostOptionsWindowMainView.cpp \
+	src/LJApplication/LJAboutWindow/LJAboutWindow.cpp \
+	src/LJApplication/LJAboutWindow/LJAboutMainView/LJAboutMainView.cpp \
+	src/LJApplication/LJAboutWindow/LJAboutMainView/LJIconView/LJIconView.cpp \
+    src/ListItems/FriendListItem.cpp \
+	src/ListItems/HistoryListItem.cpp \
+	src/ResponseBlockManager/ResponseBlockManager.cpp \
+	src/CommandBlockManager/CommandBlockManager.cpp \
+    src/SettingsFile/SettingsFile.cpp \
+    src/BubbleHelper/BubbleHelper.cpp
+
+#	specify the resource files to use
+#	full path or a relative path to the resource file can be used.
+RSRCS= Resource.rsrc
+
+#	specify additional libraries to link against
+#	there are two acceptable forms of library specifications
+#	-	if your library follows the naming pattern of:
+#		libXXX.so or libXXX.a you can simply specify XXX
+#		library: libbe.so entry: be
+#		
+#	- 	if your library does not follow the standard library
+#		naming scheme you need to specify the path to the library
+#		and it's name
+#		library: my_lib.a entry: my_lib.a or path/my_lib.a
+#
+#	BeXL Note: 	libbe.so and libroot.so are always included: no
+#				need to add them twice.
+LIBS= be root tracker translation stdc++.r4 netapi
+
+#	specify additional paths to directories following the standard
+#	libXXX.so or libXXX.a naming scheme.  You can specify full paths
+#	or paths relative to the makefile.  The paths included may not
+#	be recursive, so include all of the paths where libraries can
+#	be found.  Directories where source files are found are
+#	automatically included.
+LIBPATHS= 
+
+#	additional paths to look for system headers
+#	thes use the form: #include <header>
+#	source file directories are NOT auto-included here
+SYSTEM_INCLUDE_PATHS = 
+
+#	additional paths to look for local headers
+#	thes use the form: #include "header"
+#	source file directories are automatically included
+LOCAL_INCLUDE_PATHS = 
+
+#	specify the level of optimization that you desire
+#	NONE, SOME, FULL
+OPTIMIZE= NONE
+
+#	specify any preprocessor symbols to be defined.  The symbols will not
+#	have their values set automatically; you must supply the value (if any)
+#	to use.  For example, setting DEFINES to "DEBUG=1" will cause the
+#	compiler option "-DDEBUG=1" to be used.  Setting DEFINES to "DEBUG"
+#	would pass "-DDEBUG" on the compiler's command line.
+DEFINES= 
+
+#	specify special warning levels
+#	if unspecified default warnings will be used
+#	NONE = supress all warnings
+#	ALL = enable all warnings
+WARNINGS = ALL
+
+#	specify whether image symbols will be created
+#	so that stack crawls in the debugger are meaningful
+#	if TRUE symbols will be created
+SYMBOLS = TRUE
+
+#	specify debug settings
+#	if TRUE will allow application to be run from a source-level
+#	debugger.  Note that this will disable all optimzation.
+DEBUGGER = TRUE
+
+#	specify additional compiler flags for all files
+COMPILER_FLAGS =
+
+#	specify additional linker flags
+LINKER_FLAGS =
+
+#	specify the version of this particular item
+#	(for example, -app 3 4 0 d 0 -short 340 -long "340 "`echo -n -e '©'`"1999 GNU GPL") 
+#	This may also be specified in a resource.
+APP_VERSION = 
+
+#	(for TYPE == DRIVER only) Specify desired location of driver in the /dev
+#	hierarchy. Used by the driverinstall rule. E.g., DRIVER_PATH = video/usb will
+#	instruct the driverinstall rule to place a symlink to your driver's binary in
+#	~/add-ons/kernel/drivers/dev/video/usb, so that your driver will appear at
+#	/dev/video/usb when loaded. Default is "misc".
+DRIVER_PATH = 
+
+## include the makefile-engine
+include $(BUILDHOME)/etc/makefile-engine
