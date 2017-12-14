@@ -7,8 +7,7 @@
 #include <View.h>
 #include <Bitmap.h>
 #include <string>
-
-
+#include <PopUpMenu.h>
 #include <ScrollView.h>
 #include <ListView.h>
 #include <StringView.h>
@@ -37,7 +36,7 @@ public:
     BPopUpMenu      *journalMenu;
     BMenuField      *journalField;
 
-    string          usejournal; 
+    std::string          usejournal; 
 
 	bool _bxl_attached;
 
