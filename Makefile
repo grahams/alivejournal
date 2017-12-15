@@ -42,13 +42,11 @@ SRCS=  src/main.cpp \
 	src/ResponseBlockManager/ResponseBlockManager.cpp \
 	src/CommandBlockManager/CommandBlockManager.cpp \
     src/SettingsFile/SettingsFile.cpp \
-    src/BubbleHelper/BubbleHelper.cpp
+    src/BubbleHelper/BubbleHelper.cpp \
 
 #	specify the resource files to use
 #	full path or a relative path to the resource file can be used.
-RSRCS =
-
-RDEFS = Resource.rdef
+RSRCS= Resource.rsrc \
 
 #	specify additional libraries to link against
 #	there are two acceptable forms of library specifications
@@ -63,7 +61,7 @@ RDEFS = Resource.rdef
 #
 #	BeXL Note: 	libbe.so and libroot.so are always included: no
 #				need to add them twice.
-LIBS= be root tracker translation $(STDCPPLIBS) netapi
+LIBS= be root stdc++ network translation bnetapi
 
 #	specify additional paths to directories following the standard
 #	libXXX.so or libXXX.a naming scheme.  You can specify full paths
@@ -71,7 +69,7 @@ LIBS= be root tracker translation $(STDCPPLIBS) netapi
 #	be recursive, so include all of the paths where libraries can
 #	be found.  Directories where source files are found are
 #	automatically included.
-LIBPATHS= 
+LIBPATHS= /boot/system/lib
 
 #	additional paths to look for system headers
 #	thes use the form: #include <header>

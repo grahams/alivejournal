@@ -9,6 +9,7 @@
 #include <string>
 #include <PopUpMenu.h>
 #include <ScrollView.h>
+#include <MenuField.h>
 #include <ListView.h>
 #include <StringView.h>
 

@@ -42,14 +42,14 @@ class BubbleHelper
 		void		DisplayHelp(char *text,BPoint where);
 		void		Helper();
 		char		*GetHelp(BView *view);
-		static long _helper(void *arg);
+		static int32 _helper(void *arg);
 		BView		*FindView(BPoint where);
 		bool		enabled;
 		
 		void HideBubble();
 		void ShowBubble(BPoint dest);
 		
-		static long runcount;
+		static int32 runcount;
 };
 
 #endif

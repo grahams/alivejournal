@@ -39,7 +39,7 @@ FriendListItem::FriendListItem(const char *label, bool fstatus)
 
 
 void
-FriendListItem::DrawItem(BView *owner, BRect frame, bool complete = false)
+FriendListItem::DrawItem(BView *owner, BRect frame, bool complete)
 {
     BBitmap *icon;
     if (status) icon = true_icon;
