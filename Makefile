@@ -46,7 +46,9 @@ SRCS=  src/main.cpp \
 
 #	specify the resource files to use
 #	full path or a relative path to the resource file can be used.
-RSRCS= Resource.rsrc
+RSRCS =
+
+RDEFS = Resource.rdef
 
 #	specify additional libraries to link against
 #	there are two acceptable forms of library specifications
@@ -61,7 +63,7 @@ RSRCS= Resource.rsrc
 #
 #	BeXL Note: 	libbe.so and libroot.so are always included: no
 #				need to add them twice.
-LIBS= be root tracker translation stdc++.r4 netapi
+LIBS= be root tracker translation $(STDCPPLIBS) netapi
 
 #	specify additional paths to directories following the standard
 #	libXXX.so or libXXX.a naming scheme.  You can specify full paths
