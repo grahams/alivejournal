@@ -33,7 +33,7 @@ HistoryListItem::HistoryListItem(const char *sLabel, const char *sItem_id)
 
 
 void
-HistoryListItem::DrawItem(BView *owner, BRect frame, bool complete = false)
+HistoryListItem::DrawItem(BView *owner, BRect frame, bool complete)
 {
 	if (IsSelected() || complete) {
 		if (IsSelected()) {

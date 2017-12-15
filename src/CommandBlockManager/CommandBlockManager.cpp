@@ -24,7 +24,7 @@ CommandBlockManager::~CommandBlockManager(void)
 }
 
 const char *
-CommandBlockManager::GetValue(const char *name, bool decode_url=false)
+CommandBlockManager::GetValue(const char *name, bool decode_url)
 {
 	for(int32 i = 0; i < hash_values->CountItems(); i++) {
 		hash_table *table = (hash_table *)hash_values->ItemAt(i);
@@ -47,7 +47,7 @@ CommandBlockManager::GetValue(const char *name, bool decode_url=false)
 
 void
 CommandBlockManager::SetValue(const char *name, const char *value, 
-                                                    bool encode_url=false)
+                                                    bool encode_url)
 {
     char *encodedvalue;
 
@@ -115,7 +115,7 @@ CommandBlockManager::HasValue(const char *name)
 char *
 CommandBlockManager::GetCommandBlock()
 {
-    string  block;
+    std::string  block;
     int hashsize = hash_values->CountItems();
 
     block = "";

@@ -3,7 +3,7 @@
 	Copyright (c) 2000 Simon Huet
 */
 
-
+#include <string.h>
 #include <Application.h>
 #include "message_labels.h"
 #include "LJAccount.h"

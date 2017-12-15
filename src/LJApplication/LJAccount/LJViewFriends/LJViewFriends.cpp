@@ -100,7 +100,7 @@ LJViewFriends::MessageReceived(BMessage *message)
 {
 
     const char *username = NULL;
-    string cmd;
+    std::string cmd;
 
     if( (message->what == ADDFRIEND_MSG) ) {
         username = tcAddUser->Text();

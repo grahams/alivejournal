@@ -10,7 +10,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <iostream.h>
 #include <Alert.h>
 
 #include "message_labels.h"

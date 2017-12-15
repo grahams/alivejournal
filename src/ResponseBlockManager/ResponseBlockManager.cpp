@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream.h>
 #include <ctype.h>
 
 #include "LJApplication.h"
@@ -87,7 +86,7 @@ ResponseBlockManager::~ResponseBlockManager(void)
 }
 
 const char *
-ResponseBlockManager::GetValue(const char *name, bool decode_url=false)
+ResponseBlockManager::GetValue(const char *name, bool decode_url)
 {
 
 	for (int32 i=0; i<hash_values->CountItems(); i++)

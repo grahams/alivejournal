@@ -6,8 +6,10 @@
 #include <Alert.h>
 #include <stdio.h>
 #include <string>
+#include <iostream>
 #include <string.h>
 #include <time.h>
+#include <stdlib.h>
 #include <OS.h>
 #include <queue>
 #include <ListView.h>
@@ -399,7 +401,7 @@ LJApplication::DoLogin(void)
     if (response){
         ResponseBlockManager *block = new ResponseBlockManager(response);
 
-        if( block->GetValue("success") ) {
+        if( block->GetValue("success") != 0) {
             if( (!strcmp(block->GetValue("success"), "OK"))
                                             && (block->GetValue("name")) ) {
                 int namelen = strlen(block->GetValue("name"));
@@ -829,7 +831,7 @@ LJApplication::SendCommand(CommandBlockManager *man)
         error_code = 3;
     }
     else { 
-        cout << "Command:" << command << endl;
+        std::cout << "Command:" << command << std::endl;
         net_endpoint.Send( command, strlen(command) );
         //delete command;
 
@@ -886,7 +888,7 @@ LJApplication::FormatCommand(CommandBlockManager *man)
     bool use_proxy = false;
     SettingsWindow->settings->FindBool("use_proxy", &use_proxy);
     
-    string header;
+    std::string header;
 
     if( use_proxy ) {
         header = "POST http://";

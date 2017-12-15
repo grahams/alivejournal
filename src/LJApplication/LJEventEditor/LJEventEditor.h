@@ -45,7 +45,7 @@ class LJEventEditor : public BWindow
         void            ClearEditor();
         void            GetItem();
         const char      *itemid;
-        string          usejournal;
+        std::string          usejournal;
 
 };
 
